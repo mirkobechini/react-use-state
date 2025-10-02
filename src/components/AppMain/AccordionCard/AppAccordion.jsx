@@ -1,5 +1,5 @@
 import { useState } from 'react'
-
+//Import Components
 import AccordionHeader from './AccordionHeader'
 import AccordionCard from './AccordionCard'
 
@@ -8,10 +8,8 @@ export default function AppAccordion({ items }) {
      const [currentLanguage, setCurrentLanguage] = useState(1)
 
     function handleClick(e){
-        e.target.className +=' btn-warning'
         const currentlyClicked = Number(e.target.getAttribute('data-id'))
         setCurrentLanguage(currentlyClicked)
-        console.log('ciao', e);
         
     }
     
@@ -21,7 +19,7 @@ export default function AppAccordion({ items }) {
                 <div className="row row-cols-auto">
                     {items.map(item =>
                         <div className="col ps-0" key={item.id}>
-                            <button className="btn btn-primary" data-id= {item.id} onClick={handleClick} >
+                            <button className= {`btn ${currentLanguage === item.id ? 'btn-warning' : 'btn-primary'}`} data-id= {item.id} onClick={handleClick} >
                                 {item.title}
                             </button>
                         </div>
