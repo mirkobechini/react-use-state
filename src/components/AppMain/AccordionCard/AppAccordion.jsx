@@ -5,13 +5,13 @@ import AccordionCard from './AccordionCard'
 
 export default function AppAccordion({ items }) {
     
-    const [currentLanguage, setCurrentLanguage] = useState(1)
+    const [currentLanguage, setCurrentLanguage] = useState(0)
     
     return (
         <>
             <div className="container py-5">
                 <AccordionHeader items = {items} language = {currentLanguage} setCurrentLanguage = {setCurrentLanguage}/>
-                <AccordionCard item = {items[currentLanguage-1]} />
+                <AccordionCard item = {(currentLanguage == 0)?0:items[currentLanguage-1]} />
             </div>
         </>
     )
